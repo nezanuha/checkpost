@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "checkpost"
+version = "0.1.0"
+description = "A simple Django middleware to detect spammy or suspicious behavior based on fingerprinting."
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+authors = [
+  { name = "Nezanuha", email = "contact@nezanuha.com" }
+]
+classifiers = [
+  "Framework :: Django",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+dependencies = ["Django>=3.2"]
+
+[project.urls]
+Homepage = "https://github.com/nezanuha/checkpost"
+Repository = "https://github.com/nezanuha/checkpost"
