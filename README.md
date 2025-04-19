@@ -1,6 +1,6 @@
-# Spam Detector
+# Checkpost - Spam Detector
 
-A lightweight, framework-agnostic spam/fraud detection utility for Python web applications. Works with Django, Flask, FastAPI, or even custom frameworks.
+Enhance your Django application's security by automatically detecting and blocking spam and fraudulent requests. This solution operates transparently in the background, eliminating the need for CAPTCHAs and ensuring a seamless user experience. By analyzing request patterns and behaviors, it effectively filters out malicious activities without compromising usability.
 
 ## Installation
 
