@@ -65,9 +65,10 @@ You **don’t need to import or call anything manually**. The middleware sets `r
 
 ```python
 def my_view(request):
-    if request.is_sus:
-        return HttpResponse("Blocked", status=403)
-
+    if getattr(request, 'is_sus', False):
+        # Optionally log or store the suspicious activity here
+        return HttpResponse("Access Denied", status=403)
+    
     return HttpResponse("Welcome!")
 ```
 ---
