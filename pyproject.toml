@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "checkpost"
-version = "0.1.0"
+version = "0.2.0"
 description = "Detects and blocks spam and fraud in Django apps without CAPTCHAs, ensuring seamless user experience."
 readme = "README.md"
 requires-python = ">=3.7"

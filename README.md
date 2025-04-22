@@ -50,7 +50,16 @@ CACHES = {
 }
 ```
 
-### 3. **Using in Views**
+### 3. Customize Blocking Behavior
+By default, Checkpost blocks suspicious requests globally in middleware.
+
+To handle suspicious activity manually in your views, disable global blocking:
+
+```python
+CHECKPOST_BLOCK_GLOBALLY = False
+```
+
+### 4. **Using in Views**
 
 You **don’t need to import or call anything manually**. The middleware sets `request.is_sus` automatically before views are called.
 
@@ -61,9 +70,7 @@ def my_view(request):
 
     return HttpResponse("Welcome!")
 ```
-
 ---
-
 ## ⚠️ Notes
 
 - If the cache is not available or misconfigured, spam detection will **gracefully skip checks** (and allow all requests).
