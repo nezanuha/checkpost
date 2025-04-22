@@ -75,7 +75,3 @@ def my_view(request):
 
 - If the cache is not available or misconfigured, spam detection will **gracefully skip checks** (and allow all requests).
 - For accurate detection and fingerprinting, caching is **strongly recommended**.
-
----
-
-Would you like this formatted in Markdown so you can copy it straight into your package’s README?
