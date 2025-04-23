@@ -7,10 +7,6 @@ Enhance your Django application's security by automatically detecting and blocki
 ```bash
 pip install checkpost
 ```
-
-
-Absolutely — here’s how you can clearly document **cache requirement and usage** in your package’s `README.md` or setup docs.
-
 ---
 
 ## ✅ Usage
