@@ -1,4 +1,11 @@
-# Checkpost - Spam Detector
+
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/checkpost)](https://pypi.org/project/checkpost/)
+[![License](https://img.shields.io/github/license/nezanuha/checkpost)](https://github.com/nezanuha/checkpost/blob/master/LICENSE)
+![PyPI - Version](https://img.shields.io/pypi/v/checkpost)
+[![Secured](https://img.shields.io/badge/Security-Passed-green)](https://snyk.io/test/github/nezanuha/checkpost)
+
+
+# Checkpost - Accurate Spam Detector, bot Detector
 
 Enhance your Django application's security by automatically detecting and blocking spam and fraudulent requests. This solution operates transparently in the background, eliminating the need for CAPTCHAs and ensuring a seamless user experience. By analyzing request patterns and behaviors, it effectively filters out malicious activities without compromising usability.
 
