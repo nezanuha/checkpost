@@ -5,7 +5,7 @@
 [![Secured](https://img.shields.io/badge/Security-Passed-green)](https://snyk.io/test/github/nezanuha/checkpost)
 
 
-# Checkpost - Accurate Spam Detector, bot Detector
+# Checkpost - Accurate Spam Detector, bot Detector -- Prevent malicious requests
 
 Enhance your Django application's security by automatically detecting and blocking spam and fraudulent requests. This solution operates transparently in the background, eliminating the need for CAPTCHAs and ensuring a seamless user experience. By analyzing request patterns and behaviors, it effectively filters out malicious activities without compromising usability.
 
