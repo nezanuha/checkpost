@@ -18,18 +18,36 @@ pip install checkpost
 
 ## ✅ Usage
 
-### 1. **Add Middleware**
+### 1. **Enable Sessions (Required)**
+
+Checkpost uses sessions to help with request fingerprinting. Ensure sessions are properly configured in your `settings.py`:
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.sessions',
+    ...
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    ...
+]
+```
+
+### 2. **Add Middleware**
 
 In your Django `settings.py`, add the `CheckpostMiddleware`:
 
 ```python
 MIDDLEWARE = [
-    # Other middleware...
-    'checkpost.middleware.CheckpostMiddleware',  # 👈 Add this
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'checkpost.middleware.CheckpostMiddleware',  # 👈 Add checkpost after SessionMiddleware
 ]
 ```
 
-### 2. **Enable Django Caching**
+### 3. **Enable Django Caching**
 
 The spam detection system **requires Django’s cache system** to function properly. Make sure your cache backend is configured in `settings.py`.
 
@@ -37,9 +55,8 @@ The spam detection system **requires Django’s cache system** to function prope
 ```python
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-        "LOCATION": "checkpost",
-    }
+        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+    },
 }
 ```
 
@@ -53,7 +70,7 @@ CACHES = {
 }
 ```
 
-### 3. Customize Blocking Behavior
+### 4. Customize Blocking Behavior
 By default, Checkpost blocks suspicious requests globally in middleware.
 
 To handle suspicious activity manually in your views, disable global blocking:
@@ -62,7 +79,7 @@ To handle suspicious activity manually in your views, disable global blocking:
 CHECKPOST_BLOCK_GLOBALLY = False
 ```
 
-### 4. **Using in Views**
+### 5. **Using in Views**
 
 You **don’t need to import or call anything manually**. The middleware sets `request.is_sus` automatically before views are called.
 
