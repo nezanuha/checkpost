@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/github/license/nezanuha/checkpost)](https://github.com/nezanuha/checkpost/blob/master/LICENSE)
 ![PyPI - Version](https://img.shields.io/pypi/v/checkpost)
 ![Secured](https://img.shields.io/badge/Security-Passed-green)
+[![Django CI](https://github.com/nezanuha/checkpost/actions/workflows/test.yml/badge.svg)](https://github.com/nezanuha/checkpost/actions/workflows/test.yml)
 
 
 # Checkpost - Accurate Spam Detector, bot Detector -- Prevent malicious requests
