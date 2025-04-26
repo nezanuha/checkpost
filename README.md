@@ -70,10 +70,10 @@ CACHES = {
 }
 ```
 
-### 4. Customize Blocking Behavior
-By default, Checkpost blocks suspicious requests globally in middleware.
+### 4. Global Blocking Behavior
 
-To handle suspicious activity manually in your views, disable global blocking:
+By default, suspicious requests are **automatically** blocked (raises `PermissionDenied`).  
+To inspect and handle them manually in your views:
 
 ```python
 CHECKPOST_BLOCK_GLOBALLY = False
@@ -91,8 +91,35 @@ def my_view(request):
     
     return HttpResponse("Welcome!")
 ```
+
+## ⚙️ Configuration (Optional Settings)
+
+All of these settings are **optional**. Omit them to use the built-in defaults.
+
+| Setting                         | Default   | Description & When to Use                                                                                              |
+|---------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|
+| `CHECKPOST_MISMATCH_THRESHOLD`  | `1`       | How many IP‐mismatches allowed before blocking. Increase if users may legitimately switch IPs (mobile networks, VPN). |
+| `CHECKPOST_TRUSTED_IPS`         | `[]`      | List of IPs or CIDR ranges that **bypass** the IP change check. Useful for internal services, health‐checks, or VPNs. |
+| `CHECKPOST_TRUSTED_USER_AGENTS` | `[]`      | List of regex patterns matching UAs to **bypass** the IP check. Use for known crawlers/bots or API clients.            |
+| `CHECKPOST_BLOCK_GLOBALLY`      | `True`    | If `False`, middleware sets `request.is_sus` but does not raise. You must handle blocking in your views.              |
+| `CHECKPOST_CACHE_TIMEOUT`       | 3600      | (Optional) Seconds until a stored IP or mismatch count expires. Lower for short‐lived sessions, higher to remember users longer|
+
+### When to add Trusted IPs / UAs
+
+- **Trusted IPs**:  
+  - Internal cron jobs, monitoring, or deploy hooks with fixed IPs.  
+  - Corporate or VPN egress ranges where legitimate users hop across subnets.
+
+- **Trusted User-Agents**:  
+  - Official search crawlers (e.g. Googlebot) whose UA you recognize.  
+  - API clients that send a stable UA string.
+
+> **Tip:** Start without any whitelists. Monitor your logs for false positives, and **only** add IPs or UA patterns when necessary.
+
+
 ---
 ## ⚠️ Notes
 
 - If the cache is not available or misconfigured, spam detection will **gracefully skip checks** (and allow all requests).
-- For accurate detection and fingerprinting, caching is **strongly recommended**.
+- For best results, use a high-performance cache (Redis, Memcached, or `LocMemCache` in‐memory) in production.
+- **Sessions and Caching are mandatory** for correct spam detection. If sessions or cache are unavailable, Checkpost will gracefully allow all traffic (fail-safe).
