@@ -6,7 +6,7 @@
 [![Django CI](https://github.com/nezanuha/checkpost/actions/workflows/test.yml/badge.svg)](https://github.com/nezanuha/checkpost/actions/workflows/test.yml)
 
 
-# Checkpost - Accurate Spam Detector, bot Detector -- Prevent malicious requests
+# Checkpost - Accurate Spam Detector, bot Detector -- Prevent malicious requests for Django
 
 Enhance your Django application's security by automatically detecting and blocking spam and fraudulent requests. This solution operates transparently in the background, eliminating the need for CAPTCHAs and ensuring a seamless user experience. By analyzing request patterns and behaviors, it effectively filters out malicious activities without compromising usability.
 
