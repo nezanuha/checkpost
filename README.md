@@ -6,7 +6,7 @@
 [![Django CI](https://github.com/nezanuha/checkpost/actions/workflows/test.yml/badge.svg)](https://github.com/nezanuha/checkpost/actions/workflows/test.yml)
 
 
-# Checkpost - Accurate Spam Detector, bot Detector -- Prevent malicious requests for Django
+# Checkpost - Accurate Spam Detector, bot Detector, protect contact form -- Prevent malicious requests for Django 
 
 Enhance your Django application's security by automatically detecting and blocking spam and fraudulent requests. This solution operates transparently in the background, eliminating the need for CAPTCHAs and ensuring a seamless user experience. By analyzing request patterns and behaviors, it effectively filters out malicious activities without compromising usability.
 
@@ -85,7 +85,7 @@ CHECKPOST_BLOCK_GLOBALLY = False
 You **don’t need to import or call anything manually**. The middleware sets `request.is_sus` automatically before views are called.
 
 ```python
-def my_view(request):
+def email_form(request):
     if getattr(request, 'is_sus', False):
         # Optionally log or store the suspicious activity here
         return HttpResponse("Access Denied", status=403)
