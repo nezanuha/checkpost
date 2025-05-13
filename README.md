@@ -1,5 +1,5 @@
 
-[![PyPI - Downloads](https://img.shields.io/pypi/dw/checkpost)](https://pypi.org/project/checkpost/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/checkpost)](https://pypi.org/project/checkpost/)
 [![License](https://img.shields.io/github/license/nezanuha/checkpost)](https://github.com/nezanuha/checkpost/blob/master/LICENSE)
 ![PyPI - Version](https://img.shields.io/pypi/v/checkpost)
 ![Secured](https://img.shields.io/badge/Security-Passed-green)
