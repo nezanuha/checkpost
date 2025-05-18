@@ -10,6 +10,8 @@
 
 Enhance your Django application's security by automatically detecting and blocking spam and fraudulent requests. This solution operates transparently in the background, eliminating the need for CAPTCHAs and ensuring a seamless user experience. By analyzing request patterns and behaviors, it effectively filters out malicious activities without compromising usability.
 
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/nezanuha)
+
 ## Installation
 
 ```bash
